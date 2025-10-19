@@ -154,15 +154,24 @@ export default function FoundItems() {
     </Typography>
   </Stack>
 
-  <Stack sx={{ borderRadius: '7rem' }}>
-    <Avatar
-      src={item.img?.[0] || "https://via.placeholder.com/150"}
-      sx={{
-        width: '190px',
-        height: '190px',
-      }}
-    />
-  </Stack>
+ <Stack
+  sx={{
+    width: '100%',        // full width of parent container
+    height: '200px',      // same as your card top section
+    overflow: 'hidden',   // crop overflow if needed
+    borderRadius: '8px',  // match card's border radius
+  }}
+>
+  <img
+    src={item.img?.[0] || "https://via.placeholder.com/150"}
+    alt={item.name}
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover', // fill the box, crop excess
+    }}
+  />
+</Stack>
 </Stack>
 
                       <Stack p="11px" gap="11px">
