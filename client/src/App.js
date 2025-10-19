@@ -8,8 +8,10 @@ import FoundItems from "./Components/FoundItems";
 import Home from "./Components/Home";
 import ItemPage from "./Components/ItemPage";
 import LostItem from "./Components/Lost_item";
+import adminDash from "./Components/adminDash.js";
 import MyListings from "./Components/MyListings";
 import Layout from "./layout"; 
+import AdminDash from "./Components/adminDash.js";
 window.OneSignal = window.OneSignal || [];
 const OneSignal = window.OneSignal;
 function App() {
@@ -29,9 +31,12 @@ function App() {
           <Route path="/mylistings" element={<MyListings/>} />
           <Route path="/:item" element={<ItemPage/>} />
           <Route path="/*" element={<Home/>} />
+             <Route path="/admin/dashboard" element={<AdminDash/>} />
           </Routes>
           <ToastContainer />
           </Layout>
+
+
       </BrowserRouter>
 
   );
