@@ -4,7 +4,7 @@ import React from "react";
 const AdminDash = () => {
   return (
     <div>
-      <h1>Admin Dashboard</h1>
+      <h1>Admin Dashboardd</h1>
     </div>
   );
 };
