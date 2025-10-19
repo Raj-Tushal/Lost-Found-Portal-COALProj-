@@ -116,32 +116,55 @@ export default function FoundItems() {
                           gap: '16px',
                       }}
                   >
-                      <Stack
-                          alignItems="center"
-                          justifyContent="center"
-                          flexDirection="row"
-                          position="relative"
-                          sx={{
-                              backgroundColor: '#9CC0DF',
-                              height: '200px',
-                              borderRadius: '8px',
-                          }}
-                      >
-                          <Stack
-                              sx={{
-                                  borderRadius: '7rem',
-                              }}
-                          >
-                              <Avatar
-                                  src={item.img}
-                                  sx={{
-                                      width: '190px',
-                                      height: '190px',
-                                  }}
-                              />
-                          </Stack>
-                          
-                      </Stack>
+                     <Stack
+  alignItems="center"
+  justifyContent="center"
+  flexDirection="row"
+  position="relative"
+  sx={{
+    backgroundColor: '#9CC0DF',
+    height: '200px',
+    borderRadius: '8px',
+  }}
+>
+  {/* Status Badge */}
+  <Stack
+    position="absolute"
+    top="10px"
+    right="10px"
+    px="10px"
+    py="5px"
+    borderRadius="12px"
+    sx={{
+      backgroundColor:
+        item.status === "approved"
+          ? "#4CAF50"
+          : item.status === "pending"
+          ? "#FFC107"
+          : "#F44336",
+    }}
+  >
+    <Typography
+      fontSize="13px"
+      color="white"
+      fontWeight="bold"
+      textTransform="capitalize"
+    >
+      {item.status}
+    </Typography>
+  </Stack>
+
+  <Stack sx={{ borderRadius: '7rem' }}>
+    <Avatar
+      src={item.img?.[0] || "https://via.placeholder.com/150"}
+      sx={{
+        width: '190px',
+        height: '190px',
+      }}
+    />
+  </Stack>
+</Stack>
+
                       <Stack p="11px" gap="11px">
                           <Typography
                               noWrap
