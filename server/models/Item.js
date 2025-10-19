@@ -18,6 +18,11 @@ const ItemsSchema = new mongoose.Schema({
     
     date: 
     { type: String, required: true },
+      status: {
+    type: String,
+    enum: ["pending", "approved", "rejected"],
+    default: "pending",
+  },
 
     number: { type: String, required: true },
     
