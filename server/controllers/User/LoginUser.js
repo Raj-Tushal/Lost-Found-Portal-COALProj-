@@ -42,6 +42,7 @@ export const loginUser = async (req, res) => {
             msg: 'User Logged',
             token,
             id: user._id,
+            role: user.role,  
         })
     } catch (error) {
         console.log(error)
