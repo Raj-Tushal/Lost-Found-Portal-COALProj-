@@ -122,19 +122,52 @@ export default function Feed() {
                             borderRadius: '8px',
                         }}
                     >
-                        <Stack
-                            sx={{
-                                borderRadius: '7rem',
-                            }}
-                        >
-                            <Avatar
-                                src={item.img}
-                                sx={{
-                                    width: '170px',
-                                    height: '170px',
-                                }}
-                            />
-                        </Stack>
+                       <Stack
+  sx={{
+    width: '100%',        // full width of parent container
+    height: '200px',      // same as your card top section
+    overflow: 'hidden',   // crop overflow if needed
+    borderRadius: '8px',  // match card's border radius
+  }}
+>
+
+  {/* Status Badge */}
+    <Stack
+      position="absolute"
+      top="10px"
+      right="10px"
+      px="10px"
+      py="5px"
+      borderRadius="12px"
+      sx={{
+        backgroundColor:
+          item.status === "approved"
+            ? "#4CAF50"
+            : item.status === "pending"
+            ? "#FFC107"
+            : "#F44336",
+      }}
+    >
+      <Typography
+        fontSize="13px"
+        color="white"
+        fontWeight="bold"
+        textTransform="capitalize"
+      >
+        {item.status}
+      </Typography>
+    </Stack>
+  <img
+    src={item.img?.[0] || "https://via.placeholder.com/150"}
+    alt={item.name}
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover', // fill the box, crop excess
+    }}
+  />
+  
+</Stack>
                         
                     </Stack>
                     <Stack p="11px" gap="11px">
