@@ -35,14 +35,28 @@ const AdminDashboard = () => {
     items.filter((item) => item.status === status).length;
 
   // ✅ Update item status (Approve/Reject)
-  const updateStatus = async (id, status) => {
-    try {
-      await axios.put(`http://localhost:5000/items/updateStatus/${id}`, { status });
-      fetchItems(); // Refresh list
-    } catch (err) {
-      console.error("Error updating status:", err);
+const updateStatus = async (id, status) => {
+  try {
+    const res = await axios.put(
+      `http://localhost:5000/Items/updateItemStatus/${id}`,
+      { status },
+      {
+        headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`
     }
-  };
+      } // this matches your req.body
+    );
+
+    // optional: show a success message
+    alert(`Item marked as ${res.data.status}`);
+
+    // ✅ refresh the list after updating
+    fetchItems();
+  } catch (err) {
+    console.error("Error updating status:", err);
+    alert("Failed to update status");
+  }
+};
 
   return (
     <Stack p={4} spacing={4}>
