@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 const ItemsSchema = new mongoose.Schema({
     name: 
     { type: String, default: 'No Name' },
+    
+      posterName: { type: String, required: true }, // 👈 new field
 
     userId: 
     { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },

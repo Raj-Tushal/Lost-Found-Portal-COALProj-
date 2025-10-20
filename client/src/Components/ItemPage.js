@@ -284,9 +284,9 @@ function ItemPage() {
             <Typography fontSize={{ xs: '18px', sm: '22px', md: '25px' }} color="white">
               {`${item?.type} Item`}
             </Typography>
-            <Typography fontSize={{ xs: '17px', sm: '21px', md: '23px' }} color="white" fontWeight="bold">
-              {'Someone Found'} {item?.name}
-            </Typography>
+           <Typography fontSize={{ xs: '17px', sm: '21px', md: '23px' }} color="white" fontWeight="bold">
+  {`${item?.posterName || 'Someone'} ${item?.type?.toLowerCase()} ${item?.name}`}
+</Typography>
           </Stack>
         </Stack>
 

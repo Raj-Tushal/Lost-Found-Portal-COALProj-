@@ -143,7 +143,7 @@ const updateStatus = async (id, status) => {
           />
         )}
 
-        <Typography variant="h6">{item.name}</Typography>
+        <Typography variant="h6"> {`${item.posterName || "Someone"} ${item.type} ${item.name}`}</Typography>
         <Typography variant="body2" color="text.secondary">
           {item.description}
         </Typography>

@@ -92,7 +92,7 @@ export default function FoundItems() {
           
           if (item.type === "Found") {
             let user = false;
-            if (item.userId === user_info._id) {
+            if (item.userId._id === user_info._id) {
               user = true;
             }
           
@@ -128,31 +128,31 @@ export default function FoundItems() {
   }}
 >
   {/* Status Badge */}
-  <Stack
-    position="absolute"
-    top="10px"
-    right="10px"
-    px="10px"
-    py="5px"
-    borderRadius="12px"
-    sx={{
-      backgroundColor:
-        item.status === "approved"
-          ? "#4CAF50"
-          : item.status === "pending"
-          ? "#FFC107"
-          : "#F44336",
-    }}
-  >
-    <Typography
-      fontSize="13px"
-      color="white"
-      fontWeight="bold"
-      textTransform="capitalize"
-    >
-      {item.status}
-    </Typography>
-  </Stack>
+     <Stack
+       position="absolute"
+       top="10px"
+       right="10px"
+       px="10px"
+       py="5px"
+       borderRadius="12px"
+       sx={{
+         backgroundColor:
+           item.status === "approved"
+             ? "#4CAF50"
+             : item.status === "pending"
+             ? "#FFC107"
+             : "#F44336",
+       }}
+     >
+       <Typography
+         fontSize="13px"
+         color="white"
+         fontWeight="bold"
+         textTransform="capitalize"
+       >
+         {item.status}
+       </Typography>
+     </Stack>
 
  <Stack
   sx={{
@@ -178,7 +178,7 @@ export default function FoundItems() {
                           <Typography
                               noWrap
                               gutterBottom
-                              fontSize="25px"
+                              fontSize="17px"
                               component="div"
                               fontWeight={'bold'}
                               m="0"
@@ -189,7 +189,7 @@ export default function FoundItems() {
                                   gap: '16px',
                               }}
                           >
-                              {item.name}
+                            {`${item.posterName || "Someone"} found ${item.name}`}
                   
                           </Typography>
                   

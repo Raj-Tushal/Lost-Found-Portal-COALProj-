@@ -90,7 +90,7 @@ export default function Feed() {
             ":" +
             created_date.getMinutes();
 
-          if (item.userId === getUserId()._id ) {
+          if (item.userId._id === getUserId()._id ) {
           items.push(
             <motion.div
             whileHover={{ scale: [null, 1.05, 1.05] }}
@@ -174,7 +174,7 @@ export default function Feed() {
                         <Typography
                             noWrap
                             gutterBottom
-                            fontSize="25px"
+                            fontSize="17px"
                             component="div"
                             fontWeight={'bold'}
                             m="0"
@@ -185,7 +185,7 @@ export default function Feed() {
                                 gap: '16px',
                             }}
                         >
-                            {item.name}
+                            {`${item.posterName || "Someone"} found ${item.name}`}
                 
                         </Typography>
                 
