@@ -12,6 +12,7 @@ import adminDash from "./Components/adminDash.js";
 import MyListings from "./Components/MyListings";
 import Layout from "./layout"; 
 import AdminDash from "./Components/adminDash.js";
+import ProtectedRoute from "./utils/ProtectedRoute.js";
 window.OneSignal = window.OneSignal || [];
 const OneSignal = window.OneSignal;
 function App() {
@@ -31,7 +32,17 @@ function App() {
           <Route path="/mylistings" element={<MyListings/>} />
           <Route path="/:item" element={<ItemPage/>} />
           <Route path="/*" element={<Home/>} />
-             <Route path="/admin/dashboard" element={<AdminDash/>} />
+          
+
+              {/* ✅ Admin-only route */}
+      <Route
+      path="/admin/dashboard"
+        element={
+          <ProtectedRoute allowedRoles={['admin']}>
+         <AdminDash/>
+          </ProtectedRoute>
+        }
+      />
           </Routes>
           <ToastContainer />
           </Layout>
